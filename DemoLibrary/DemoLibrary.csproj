@@ -44,6 +44,7 @@
     <Compile Include="Chore.cs" />
     <Compile Include="Emailer.cs" />
     <Compile Include="IChore.cs" />
+    <Compile Include="IEmailer.cs" />
     <Compile Include="IPerson.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Person.cs" />

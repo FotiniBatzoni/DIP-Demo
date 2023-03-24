@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoLibrary
 {
-    public class Emailer
+    public class Emailer : IEmailer
     {
         public void SendEmail(IPerson person, string message)
         {
