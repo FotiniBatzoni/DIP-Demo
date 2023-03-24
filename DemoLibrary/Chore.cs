@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace DemoLibrary
 {
     public class Chore : IChore
     {
+        ILogger _logger;
+        IMessageSender _messageSender;
+
+
         public string ChoreName { get; set; }
 
         public IPerson Owner { get; set; }
@@ -17,22 +16,25 @@ namespace DemoLibrary
 
         public bool IsComplete { get; private set; }
 
+        public Chore(ILogger logger, IMessageSender messageSender)
+        {
+            _logger = logger;
+            _messageSender = messageSender;
+        }
+
         public void PerformedWork(double hours)
         {
             HoursWorked += hours;
-            Logger log = new Logger();
-            log.Log($"Performwd work on  {ChoreName}");
+            _logger.Log($"Performwd work on  {ChoreName}");
         }
 
         public void CompleteWork()
         {
             IsComplete = true;
 
-            Logger log = new Logger();
-            log.Log($"Completed  {ChoreName}");
+            _logger.Log($"Completed  {ChoreName}");
 
-            Emailer emailer = new Emailer();
-            emailer.SendEmail(Owner, $"The chore {ChoreName} is completed");
+            _messageSender.SendMessage(Owner, $"The chore {ChoreName} is completed");
         }
     }
 }
