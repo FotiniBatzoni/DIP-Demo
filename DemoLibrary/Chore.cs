@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DemoLibrary
 {
-    public class Chore
+    public class Chore : IChore
     {
-        public string ChoreName { get; set; }   
+        public string ChoreName { get; set; }
 
         public IPerson Owner { get; set; }
 
@@ -25,7 +25,7 @@ namespace DemoLibrary
         }
 
         public void CompleteWork()
-        { 
+        {
             IsComplete = true;
 
             Logger log = new Logger();
