@@ -2,6 +2,6 @@
 {
     public interface IMessageSender
     {
-        void SendEmail(IPerson person, string message);
+        void SendMessage(IPerson person, string message);
     }
 }

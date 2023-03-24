@@ -18,5 +18,15 @@ namespace ConsoleUI
         {
             return new Chore();
         }
+
+        public static ILogger CreateLogger()
+        {
+            return new Logger();    
+        }
+
+        public static IMessageSender CreateMessageSender()
+        {
+            return new Emailer();
+        }
     }
 }
