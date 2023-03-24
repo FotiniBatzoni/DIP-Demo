@@ -12,7 +12,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Person owner = new Person
+            IPerson owner = new Person
             {
                 FirstName = "Tim",
                 LastName = "Barton",
@@ -28,7 +28,7 @@ namespace ConsoleUI
 
             chore.PerformedWork(3);
             chore.PerformedWork(1.5);
-            chore.CompleteChore();
+            chore.CompleteWork();
 
             Console.ReadLine();
 
